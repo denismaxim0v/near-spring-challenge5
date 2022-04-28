@@ -186,3 +186,8 @@ aside footer *:last-child {
     box-shadow: 0 0 10em rgba(255, 255, 255, 0.02) inset;
   }
 }
+
+.earth {
+  height: 25rem;
+  width: 100%;
+}

@@ -1,4 +1,4 @@
-team-trees Smart Contract
+near-nft-mint Smart Contract
 ==================
 
 A [smart contract] written in [Rust] for an app initialized with [create-near-app]
