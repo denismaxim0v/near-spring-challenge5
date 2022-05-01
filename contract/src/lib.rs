@@ -46,6 +46,7 @@ pub struct Contract {
 
     //keeps track of the metadata for the contract
     pub metadata: LazyOption<NFTContractMetadata>,
+    pub counter: u64
 }
 
 /// Helper structure for keys of the persistent collections.
@@ -55,6 +56,7 @@ pub enum StorageKey {
     TokenPerOwnerInner { account_id_hash: CryptoHash },
     TokensById,
     TokenMetadataById,
+    Count,
     NFTContractMetadata,
     TokensPerType,
     TokensPerTypeInner { token_type_hash: CryptoHash },
@@ -75,8 +77,8 @@ impl Contract {
             owner_id,
             NFTContractMetadata {
                 spec: "nft-1.0.0".to_string(),
-                name: "NEAR CATS".to_string(),
-                symbol: "NCATS".to_string(),
+                name: "APE Trees".to_string(),
+                symbol: "APETREES".to_string(),
                 icon: None,
                 base_uri: None,
                 reference: None,
@@ -106,6 +108,7 @@ impl Contract {
                 StorageKey::NFTContractMetadata.try_to_vec().unwrap(),
                 Some(&metadata),
             ),
+            counter: 0,
         };
 
         //return the Contract object

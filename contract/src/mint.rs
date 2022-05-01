@@ -74,6 +74,7 @@ impl Contract {
 
         //calculate the required storage which was the used - initial
         let required_storage_in_bytes = env::storage_usage() - initial_storage_usage;
+        self.counter += 1;
 
         //refund any excess storage if the user attached too much. Panic if they didn't attach enough to cover the required.
         refund_deposit(required_storage_in_bytes);
@@ -82,4 +83,7 @@ impl Contract {
         self.tokens_by_id.contains_key(&id)
     }
 
+    pub fn tree_count(&self) -> u64 {
+        self.counter
+    }
 }
